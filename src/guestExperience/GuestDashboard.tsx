@@ -1,17 +1,17 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {images} from '../assets';
+import {images} from '../media';
 import {
   ConfirmationModal,
   PrimaryGreenButton,
   Screen,
   ScreenHeader,
   textStyles,
-} from '../components/ui';
-import {ImageHero, OfferCard, ReservationCard} from '../components/cards';
-import {menuItems} from '../data/menu';
-import {colors} from '../theme/colors';
-import {storageKeys, useStoredState} from '../storage/useStoredState';
+} from '../kit/ui';
+import {ImageHero, OfferCard, ReservationCard} from '../kit/cards';
+import {menuItems} from '../catalog/menu';
+import {colors} from '../styling/colors';
+import {storageKeys, useStoredState} from '../memory/useStoredState';
 
 const discounts = [10, 15, 20];
 const sessionOffers = {
@@ -22,7 +22,7 @@ const sessionOffers = {
 const dishOfDay = menuItems.find(item => item.id === 'grilled-salmon-fillet') ?? menuItems[0];
 const drinkOfDay = menuItems.find(item => item.id === 'emerald-mojito') ?? menuItems[16];
 
-export function HomeScreen() {
+export function GuestDashboard() {
   const [doNotDisturb, setDoNotDisturb] = useStoredState(
     storageKeys.doNotDisturb,
     false,
@@ -33,7 +33,7 @@ export function HomeScreen() {
     <Screen>
       <ImageHero
         image={images.onboardingWelcome}
-        title="Star Resort Companion"
+        title="Lonestar Guest Assistan Casino"
         subtitle="Your stay. One tap away."
       />
       <ReservationCard doNotDisturb={doNotDisturb} onToggle={setDoNotDisturb} />

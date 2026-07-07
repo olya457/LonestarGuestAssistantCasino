@@ -7,13 +7,13 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {images} from '../assets';
-import {colors} from '../theme/colors';
+import {images} from '../media';
+import {colors} from '../styling/colors';
 import {
   PrimaryGreenButton,
   PremiumDarkBackground,
   SecondaryGraphiteButton,
-} from '../components/ui';
+} from '../kit/ui';
 
 const pages = [
   {
@@ -42,7 +42,7 @@ const pages = [
   },
 ];
 
-export function OnboardingScreen({onFinish}: {onFinish: () => void}) {
+export function ArrivalIntro({onFinish}: {onFinish: () => void}) {
   const [index, setIndex] = useState(0);
   const page = pages[index];
   const isLast = index === pages.length - 1;

@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {HomeScreen} from '../screens/HomeScreen';
-import {LightsScreen} from '../screens/LightsScreen';
-import {MapScreen} from '../screens/MapScreen';
-import {MenuScreen} from '../screens/MenuScreen';
-import {TaxiScreen} from '../screens/TaxiScreen';
-import {VenuesScreen} from '../screens/VenuesScreen';
-import {colors} from '../theme/colors';
-import {platformInsets} from '../components/ui';
+import {GuestDashboard} from '../guestExperience/GuestDashboard';
+import {RoomMood} from '../guestExperience/RoomMood';
+import {PropertyMap} from '../guestExperience/PropertyMap';
+import {DiningGuide} from '../guestExperience/DiningGuide';
+import {RideConcierge} from '../guestExperience/RideConcierge';
+import {ResortDirectory} from '../guestExperience/ResortDirectory';
+import {colors} from '../styling/colors';
+import {platformInsets} from '../kit/ui';
 
 type TabKey = 'Home' | 'Menu' | 'Map' | 'Venues' | 'Taxi' | 'Lights';
 
@@ -21,15 +21,15 @@ const tabs: {key: TabKey; label: string; icon: string}[] = [
 ];
 
 const screenByTab: Record<TabKey, React.ComponentType> = {
-  Home: HomeScreen,
-  Menu: MenuScreen,
-  Map: MapScreen,
-  Venues: VenuesScreen,
-  Taxi: TaxiScreen,
-  Lights: LightsScreen,
+  Home: GuestDashboard,
+  Menu: DiningGuide,
+  Map: PropertyMap,
+  Venues: ResortDirectory,
+  Taxi: RideConcierge,
+  Lights: RoomMood,
 };
 
-export function AppNavigator() {
+export function StayCoordinator() {
   const [activeTab, setActiveTab] = useState<TabKey>('Home');
   const ActiveScreen = screenByTab[activeTab];
 

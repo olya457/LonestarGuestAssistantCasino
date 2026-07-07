@@ -8,8 +8,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {colors} from '../theme/colors';
-import type {CartItem, MenuItem, TaxiCategoryId, Venue} from '../types';
+import {colors} from '../styling/colors';
+import type {CartItem, MenuItem, TaxiCategoryId, Venue} from '../models';
 import {
   GlassCard,
   PrimaryGreenButton,

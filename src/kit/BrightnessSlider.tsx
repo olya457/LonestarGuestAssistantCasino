@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {colors} from '../theme/colors';
+import {colors} from '../styling/colors';
 
 export function BrightnessSlider({
   value,

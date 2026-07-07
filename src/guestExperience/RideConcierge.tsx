@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from 'react';
 import {ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {TaxiCategoryCard} from '../components/cards';
+import {TaxiCategoryCard} from '../kit/cards';
 import {
   Chip,
   ConfirmationModal,
@@ -9,10 +9,10 @@ import {
   Screen,
   ScreenHeader,
   textStyles,
-} from '../components/ui';
-import {storageKeys, useStoredState} from '../storage/useStoredState';
-import {colors} from '../theme/colors';
-import type {TaxiCategoryId, TaxiDraft} from '../types';
+} from '../kit/ui';
+import {storageKeys, useStoredState} from '../memory/useStoredState';
+import {colors} from '../styling/colors';
+import type {TaxiCategoryId, TaxiDraft} from '../models';
 
 const taxiCategories = [
   {
@@ -85,7 +85,7 @@ const defaultTaxiDraft: TaxiDraft = {
   scheduledTime: '14:00',
 };
 
-export function TaxiScreen() {
+export function RideConcierge() {
   const [draft, setDraft] = useStoredState<TaxiDraft>(
     storageKeys.taxiDraft,
     defaultTaxiDraft,

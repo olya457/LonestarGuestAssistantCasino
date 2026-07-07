@@ -1,5 +1,5 @@
-import {images} from '../assets';
-import type {Venue} from '../types';
+import {images} from '../media';
+import type {Venue} from '../models';
 
 export const venues: Venue[] = [
   {

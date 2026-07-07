@@ -1,5 +1,5 @@
-import {images} from '../assets';
-import type {MenuCategory, MenuItem} from '../types';
+import {images} from '../media';
+import type {MenuCategory, MenuItem} from '../models';
 
 export const menuCategories: MenuCategory[] = [
   'Breakfast',

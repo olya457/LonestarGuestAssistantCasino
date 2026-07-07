@@ -1,12 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
-import {VenueDetailsCard} from '../components/cards';
-import {Screen, ScreenHeader} from '../components/ui';
-import {venues} from '../data/venues';
-import {storageKeys, useStoredState} from '../storage/useStoredState';
-import type {ExpandedVenueState} from '../types';
+import {VenueDetailsCard} from '../kit/cards';
+import {Screen, ScreenHeader} from '../kit/ui';
+import {venues} from '../catalog/venues';
+import {storageKeys, useStoredState} from '../memory/useStoredState';
+import type {ExpandedVenueState} from '../models';
 
-export function VenuesScreen() {
+export function ResortDirectory() {
   const [expandedVenues, setExpandedVenues] = useStoredState<ExpandedVenueState>(
     storageKeys.expandedVenues,
     {},

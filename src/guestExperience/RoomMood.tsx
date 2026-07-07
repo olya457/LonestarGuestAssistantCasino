@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, Switch, Text, TouchableOpacity, View} from 'react-native';
-import {LightingPresetCard} from '../components/cards';
-import {BrightnessSlider} from '../components/BrightnessSlider';
+import {LightingPresetCard} from '../kit/cards';
+import {BrightnessSlider} from '../kit/BrightnessSlider';
 import {
   Chip,
   ConfirmationModal,
@@ -10,10 +10,10 @@ import {
   Screen,
   ScreenHeader,
   textStyles,
-} from '../components/ui';
-import {storageKeys, useStoredState} from '../storage/useStoredState';
-import {colors} from '../theme/colors';
-import type {LightingColor, LightingPreset, LightingSettings} from '../types';
+} from '../kit/ui';
+import {storageKeys, useStoredState} from '../memory/useStoredState';
+import {colors} from '../styling/colors';
+import type {LightingColor, LightingPreset, LightingSettings} from '../models';
 
 const lightingColors: {label: LightingColor; color: string}[] = [
   {label: 'Emerald', color: '#00F28A'},
@@ -54,7 +54,7 @@ const defaultLightingSettings: LightingSettings = {
   turnOffTime: '23:30',
 };
 
-export function LightsScreen() {
+export function RoomMood() {
   const [settings, setSettings] = useStoredState<LightingSettings>(
     storageKeys.lightingSettings,
     defaultLightingSettings,

@@ -6,15 +6,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {images} from '../assets';
-import {VenueDetailsCard} from '../components/cards';
-import {EmptyStateView, GlassCard, Screen, ScreenHeader} from '../components/ui';
-import {venues} from '../data/venues';
-import {storageKeys, useStoredState} from '../storage/useStoredState';
-import {colors} from '../theme/colors';
-import type {ExpandedVenueState} from '../types';
+import {images} from '../media';
+import {VenueDetailsCard} from '../kit/cards';
+import {EmptyStateView, GlassCard, Screen, ScreenHeader} from '../kit/ui';
+import {venues} from '../catalog/venues';
+import {storageKeys, useStoredState} from '../memory/useStoredState';
+import {colors} from '../styling/colors';
+import type {ExpandedVenueState} from '../models';
 
-export function MapScreen() {
+export function PropertyMap() {
   const [selectedVenueId, setSelectedVenueId] = useState<string | null>(
     venues[0]?.id ?? null,
   );

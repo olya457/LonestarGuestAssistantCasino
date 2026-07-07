@@ -17,14 +17,14 @@ import {
   ScreenHeader,
   SecondaryGraphiteButton,
   textStyles,
-} from '../components/ui';
-import {CartItemRow, MenuItemCard} from '../components/cards';
-import {menuCategories, menuItems} from '../data/menu';
-import {storageKeys, useStoredState} from '../storage/useStoredState';
-import {colors} from '../theme/colors';
-import type {CartItem, MenuCategory} from '../types';
+} from '../kit/ui';
+import {CartItemRow, MenuItemCard} from '../kit/cards';
+import {menuCategories, menuItems} from '../catalog/menu';
+import {storageKeys, useStoredState} from '../memory/useStoredState';
+import {colors} from '../styling/colors';
+import type {CartItem, MenuCategory} from '../models';
 
-export function MenuScreen() {
+export function DiningGuide() {
   const [selectedCategory, setSelectedCategory] =
     useState<MenuCategory>('Breakfast');
   const [cart, setCart] = useStoredState<CartItem[]>(storageKeys.cart, []);

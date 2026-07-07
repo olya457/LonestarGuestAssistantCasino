@@ -11,7 +11,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import {colors, spacing} from '../theme/colors';
+import {colors, spacing} from '../styling/colors';
 
 type BackgroundProps = {
   children: React.ReactNode;
@@ -231,7 +231,7 @@ export function AppLogo({size = 88}: {size?: number}) {
           borderRadius: size * 0.28,
         },
       ]}>
-      <Image source={require('../assets/star_resort_loader_s_glow.png')} style={styles.logoImage} />
+      <Image source={require('../media/star_resort_loader_s_glow.png')} style={styles.logoImage} />
       <Text style={[styles.logoS, {fontSize: size * 0.46}]}>S</Text>
       <Text style={[styles.logoStar, {fontSize: size * 0.22}]}>★</Text>
     </View>

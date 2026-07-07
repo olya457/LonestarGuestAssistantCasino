@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {StatusBar} from 'react-native';
-import {AppNavigator} from './src/navigation/AppNavigator';
-import {LoaderScreen} from './src/screens/LoaderScreen';
-import {OnboardingScreen} from './src/screens/OnboardingScreen';
-import {storageKeys, useStoredState} from './src/storage/useStoredState';
-import {colors} from './src/theme/colors';
+import {StayCoordinator} from './src/guestFlow/StayCoordinator';
+import {WelcomeLoader} from './src/guestExperience/WelcomeLoader';
+import {ArrivalIntro} from './src/guestExperience/ArrivalIntro';
+import {storageKeys, useStoredState} from './src/memory/useStoredState';
+import {colors} from './src/styling/colors';
 
 type AppPhase = 'loader' | 'onboarding' | 'main';
 
@@ -37,11 +37,11 @@ function App(): React.JSX.Element {
         backgroundColor={colors.background}
         translucent={false}
       />
-      {phase === 'loader' ? <LoaderScreen /> : null}
+      {phase === 'loader' ? <WelcomeLoader /> : null}
       {phase === 'onboarding' ? (
-        <OnboardingScreen onFinish={finishOnboarding} />
+        <ArrivalIntro onFinish={finishOnboarding} />
       ) : null}
-      {phase === 'main' ? <AppNavigator /> : null}
+      {phase === 'main' ? <StayCoordinator /> : null}
     </>
   );
 }
