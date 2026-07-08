@@ -1,16 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {StatusBar} from 'react-native';
-import {StayCoordinator} from './src/guestFlow/StayCoordinator';
-import {WelcomeLoader} from './src/guestExperience/WelcomeLoader';
-import {ArrivalIntro} from './src/guestExperience/ArrivalIntro';
-import {storageKeys, useStoredState} from './src/memory/useStoredState';
-import {colors} from './src/styling/colors';
+import {StayCompassShell} from './src/app/stay-shell/StayCompassShell';
+import {SplashHold} from './src/features/arrival/screens/SplashHold';
+import {ArrivalPrelude} from './src/features/arrival/screens/ArrivalPrelude';
+import {guestMemoryKeys, useGuestMemory} from './src/shared/persistence/useGuestMemory';
+import {palette} from './src/shared/theme/palette';
 
 type AppPhase = 'loader' | 'onboarding' | 'main';
 
 function App(): React.JSX.Element {
   const [onboardingCompleted, setOnboardingCompleted, hydrated] =
-    useStoredState<boolean>(storageKeys.onboardingCompleted, false);
+    useGuestMemory<boolean>(guestMemoryKeys.onboardingCompleted, false);
   const [phase, setPhase] = useState<AppPhase>('loader');
 
   useEffect(() => {
@@ -34,14 +34,14 @@ function App(): React.JSX.Element {
     <>
       <StatusBar
         barStyle="light-content"
-        backgroundColor={colors.background}
+        backgroundColor={palette.background}
         translucent={false}
       />
-      {phase === 'loader' ? <WelcomeLoader /> : null}
+      {phase === 'loader' ? <SplashHold /> : null}
       {phase === 'onboarding' ? (
-        <ArrivalIntro onFinish={finishOnboarding} />
+        <ArrivalPrelude onFinish={finishOnboarding} />
       ) : null}
-      {phase === 'main' ? <StayCoordinator /> : null}
+      {phase === 'main' ? <StayCompassShell /> : null}
     </>
   );
 }

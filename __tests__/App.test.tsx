@@ -10,11 +10,11 @@ jest.mock('@react-native-async-storage/async-storage', () =>
   require('@react-native-async-storage/async-storage/jest/async-storage-mock'),
 );
 
-jest.mock('../src/guestExperience/WelcomeLoader', () => {
+jest.mock('../src/features/arrival/screens/SplashHold', () => {
   const MockReact = require('react');
   const {View} = require('react-native');
   return {
-    WelcomeLoader: () => MockReact.createElement(View),
+    SplashHold: () => MockReact.createElement(View),
   };
 });
 
